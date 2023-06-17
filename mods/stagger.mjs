@@ -1,10 +1,13 @@
-const CLASS = ".stagger";
 const PROP = "--stagger";
 const STEP = 150;
 const UNIT = "ms";
 
-export function init() {
-  document.querySelectorAll(CLASS).forEach((el, idx) => {
+/** @param {string=} selector */
+export function init(selector) {
+  if (!selector) {
+    return;
+  }
+  document.querySelectorAll(selector).forEach((el, idx) => {
     if (!(el instanceof HTMLElement)) {
       throw new Error(`${el} is not an HTMLElement`);
     }

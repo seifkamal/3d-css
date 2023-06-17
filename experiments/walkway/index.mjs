@@ -4,6 +4,6 @@ import { init as initControls } from "../../mods/controls.mjs";
 
 window.addEventListener("DOMContentLoaded", () => {
   initCamera();
-  initStagger();
+  initStagger(".door,.step,.cliff");
   initControls();
 });
