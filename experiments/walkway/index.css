@@ -1,0 +1,67 @@
+@import url("/global.css");
+
+:root {
+  --rot: 90deg;
+  --size: 6cm;
+  /* Hack: Wait for JS to kick in. */
+  --stagger: 1s;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1mm;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  rotate: x var(--rot);
+}
+
+.step {
+  width: var(--size);
+  height: calc(var(--size) / 4);
+  background-color: var(--c-dark);
+  opacity: 0;
+  animation: fade-in 500ms var(--stagger, 0ms) ease-out forwards;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+.door {
+  width: var(--size);
+  height: var(--size);
+  border: 2mm solid var(--c-dark);
+  rotate: x calc(-1 * var(--rot));
+  transform-origin: bottom;
+  display: grid;
+  place-items: center;
+  padding: 2mm;
+  animation: border-in 500ms var(--stagger, 0ms) ease-out forwards;
+}
+
+@keyframes border-in {
+  from {
+    border-width: 0;
+  }
+}
+
+.cliff {
+  width: var(--size);
+  height: calc(var(--size) / 2);
+  background-color: var(--c-dark);
+  scale: 1 0;
+  rotate: x calc(-1 * var(--rot));
+  transform-origin: top;
+  animation: scale-in 500ms var(--stagger, 0ms) ease-out forwards;
+}
+
+@keyframes scale-in {
+  to {
+    scale: 1 1;
+  }
+}

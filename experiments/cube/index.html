@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cube</title>
+    <link rel="stylesheet" href="index.css" />
+    <script type="module" src="index.mjs"></script>
+  </head>
+  <body>
+    <aside>
+      <a id="back" href="/"></a>
+      <menu>
+        <li>
+          <label>
+            size
+            <input
+              name="size"
+              type="range"
+              min="1"
+              max="10"
+              step="1"
+              value="5"
+              data-unit="cm"
+            />
+          </label>
+        </li>
+        <li>
+          <label>
+            fold
+            <input name="fold" type="checkbox" checked />
+          </label>
+        </li>
+      </menu>
+    </aside>
+    <main>
+      <div class="cube">
+        <div class="side front">
+          <div class="side left"></div>
+          <div class="side bottom stagger">
+            <div class="side right"></div>
+            <div class="side back stagger">
+              <div class="side top stagger"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

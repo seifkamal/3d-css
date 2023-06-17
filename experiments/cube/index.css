@@ -1,0 +1,62 @@
+@import url("/global.css");
+
+:root {
+  --size: 5cm;
+  --perspective: 50cm;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.cube {
+  color: var(--c-light);
+  transform-style: preserve-3d;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+}
+
+.side {
+  width: var(--size);
+  height: var(--size);
+  background-color: var(--c-dark);
+  background-image: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--c-light), var(--c-dark)),
+    transparent 90%
+  );
+  transform-style: preserve-3d;
+  transition: rotate 1s var(--stagger, 0ms) ease-in-out, width 200ms linear,
+    height 200ms linear;
+}
+
+.left {
+  transform-origin: left;
+  rotate: y 90deg;
+}
+
+.bottom {
+  transform-origin: top;
+  rotate: var(--fold, x -90deg);
+}
+
+.right {
+  transform-origin: right;
+  rotate: y -90deg;
+}
+
+.back {
+  --stagger: 200ms;
+  transform-origin: top;
+  rotate: var(--fold, x -90deg);
+}
+
+.top {
+  transform-origin: bottom;
+  rotate: x 90deg;
+}
