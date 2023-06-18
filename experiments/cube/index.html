@@ -13,9 +13,37 @@
       <menu>
         <li>
           <label>
-            size
+            width
             <input
-              name="size"
+              name="box-width"
+              type="range"
+              min="1"
+              max="10"
+              step="1"
+              value="5"
+              data-unit="cm"
+            />
+          </label>
+        </li>
+        <li>
+          <label>
+            depth
+            <input
+              name="box-depth"
+              type="range"
+              min="1"
+              max="10"
+              step="1"
+              value="5"
+              data-unit="cm"
+            />
+          </label>
+        </li>
+        <li>
+          <label>
+            height
+            <input
+              name="box-height"
               type="range"
               min="1"
               max="10"
@@ -28,23 +56,13 @@
         <li>
           <label>
             fold
-            <input name="fold" type="checkbox" checked />
+            <input name="box-fold" type="checkbox" checked />
           </label>
         </li>
       </menu>
     </aside>
     <main>
-      <div class="cube">
-        <div class="side front">
-          <div class="side left"></div>
-          <div class="side bottom stagger">
-            <div class="side right"></div>
-            <div class="side back stagger">
-              <div class="side top stagger"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <comp-loader name="box"></comp-loader>
     </main>
   </body>
 </html>
