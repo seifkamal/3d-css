@@ -1,3 +1,3 @@
 # 3D CSS
 
-A list of 3D CSS experiments.
+A collection of 3D scenes made using just CSS.
