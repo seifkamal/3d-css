@@ -7,5 +7,6 @@
   --box-label-color: var(--c-light);
   --box-gradient: color-mix(in srgb, var(--c-light), var(--c-dark));
   --box-transition: width 200ms linear, height 200ms linear;
+  --box-face-transition: var(--box-transition);
   --box-anchor-transition: rotate 500ms var(--stagger, 0ms) ease-in-out;
 }
