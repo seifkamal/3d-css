@@ -1,0 +1,68 @@
+@import url("/global.css");
+
+:root {
+  --perspective: 50cm;
+  --accent: color-mix(in hsl, var(--c-light), aqua);
+}
+
+.board {
+  --box-width: 10cm;
+  --box-height: 2cm;
+  --box-depth: 5cm;
+  --box-color: darkslategray;
+  --box-label-color: var(--c-light);
+  --box-gradient: color-mix(in hsl, transparent, var(--c-light) 20%);
+}
+
+.panel {
+  display: flex;
+  gap: 1cm;
+  padding: 1cm;
+  transform-style: preserve-3d;
+}
+
+.button {
+  --box-width: 1cm;
+  --box-height: 1cm;
+  --box-depth: 4mm;
+  --box-color: var(--c-light);
+  --box-label-color: var(--c-dark);
+  --box-gradient: color-mix(in srgb, transparent, var(--c-light));
+  --box-transition: translate 50ms linear;
+  --box-face-transition: background-color 200ms ease-out;
+
+  translate: 0 0 2mm;
+}
+
+.button[pressed] {
+  translate: 0 0 0;
+  --box-color: var(--accent);
+}
+
+.button button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button:not([pressed]) + .screen {
+  opacity: 0.5;
+  background-color: slategray;
+}
+
+.button:not([pressed]) + .screen time {
+  display: none;
+}
+
+.screen {
+  display: block;
+  margin-left: auto;
+  width: 3cm;
+  height: 1cm;
+  color: var(--c-dark);
+  background-color: var(--accent);
+  font-family: monospace;
+  display: grid;
+  place-items: center;
+  transition: opacity 500ms linear, background-color 500ms linear;
+}

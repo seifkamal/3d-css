@@ -61,6 +61,12 @@
     transition: perspective-origin 500ms ease-out;
   }
 
+  main {
+    display: grid;
+    place-items: center;
+    transform-style: preserve-3d;
+  }
+
   aside {
     position: fixed;
     top: 1rem;

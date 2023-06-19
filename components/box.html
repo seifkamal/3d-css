@@ -9,10 +9,12 @@
       --label-color: var(--box-label-color, black);
       --gradient: var(--box-gradient, lavender);
       --fold: var(--box-fold);
+      --transition: var(--box-transition);
+      --anchor-transition: var(--box-anchor-transition);
+      --face-transition: var(--box-face-transition, var(--box-transition));
 
       color: var(--label-color);
       transform-style: preserve-3d;
-      pointer-events: none;
       width: var(--width);
       height: var(--height);
       display: grid;
@@ -22,12 +24,12 @@
         ". bottom ."
         ". back ."
         ". top .";
-      transition: width 200ms linear, height 200ms linear;
+      transition: var(--box-transition);
     }
 
     .face {
       transform-style: preserve-3d;
-      transition: rotate 500ms var(--stagger, 0ms) ease-in-out;
+      transition: var(--box-anchor-transition);
     }
 
     .face::before {
@@ -41,7 +43,17 @@
         var(--gradient),
         transparent 90%
       );
-      transition: width 200ms linear, height 200ms linear;
+      transition: var(--box-face-transition);
+    }
+
+    .face ::slotted(*) {
+      position: absolute;
+      inset: 0;
+      margin-inline: auto;
+      width: var(--width);
+      height: var(--height);
+      display: grid;
+      place-items: center;
     }
 
     .front {
@@ -53,22 +65,17 @@
       height: var(--height);
     }
 
-    .front ::slotted([slot="label"]) {
-      position: absolute;
-      inset: 0;
-      margin-inline: auto;
-      width: var(--width);
-      height: var(--height);
-      display: grid;
-      place-items: center;
-    }
-
     .left {
       transform-origin: right;
       rotate: var(--fold, y -90deg);
     }
 
     .left::before {
+      width: var(--depth);
+      height: var(--height);
+    }
+
+    .left ::slotted(*) {
       width: var(--depth);
       height: var(--height);
     }
@@ -83,12 +90,22 @@
       height: var(--height);
     }
 
+    .right ::slotted(*) {
+      width: var(--depth);
+      height: var(--height);
+    }
+
     .bottom {
       transform-origin: top;
       rotate: var(--fold, x -90deg);
     }
 
     .bottom::before {
+      width: var(--width);
+      height: var(--depth);
+    }
+
+    .bottom ::slotted(*) {
       width: var(--width);
       height: var(--depth);
     }
@@ -114,15 +131,28 @@
       width: var(--width);
       height: var(--depth);
     }
+
+    .top ::slotted(*) {
+      width: var(--width);
+      height: var(--depth);
+    }
   </style>
-  <div class="face left"></div>
+  <div class="face left">
+    <slot name="left"></slot>
+  </div>
   <div class="face front">
     <div class="face bottom">
       <div class="face back">
-        <div class="face top"></div>
+        <div class="face top">
+          <slot name="top"></slot>
+        </div>
+        <slot name="back"></slot>
       </div>
+      <slot name="bottom"></slot>
     </div>
-    <slot name="label"></slot>
+    <slot name="front"></slot>
   </div>
-  <div class="face right"></div>
+  <div class="face right">
+    <slot name="right"></slot>
+  </div>
 </template>

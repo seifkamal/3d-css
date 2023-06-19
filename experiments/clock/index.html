@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clock</title>
+    <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="/experiments/clock/index.css" />
+    <script type="module" src="/experiments/clock/index.mjs"></script>
+  </head>
+  <body>
+    <aside>
+      <a id="back" href="/"></a>
+    </aside>
+    <main>
+      <comp-loader name="box" class="board">
+        <div slot="front" class="panel">
+          <comp-loader name="box" class="button">
+            <button
+              slot="front"
+              onclick="this.parentElement.toggleAttribute('pressed')"
+            >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+                  <line x1="12" y1="2" x2="12" y2="12"></line>
+                </svg>
+              </span>
+            </button>
+          </comp-loader>
+          <article class="screen">
+            <time>Loading...</time>
+          </article>
+        </div>
+        <div slot="top">
+          <h1>MotherClocker™</h1>
+        </div>
+      </comp-loader>
+    </main>
+  </body>
+</html>

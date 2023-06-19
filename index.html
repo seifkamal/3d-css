@@ -6,17 +6,14 @@
     <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="global.css" />
     <style>
-      main {
+      article {
         width: min(65ch, 100%);
         margin-inline: auto;
         padding: 2rem;
+        font-size: 1.25em;
       }
-      h1 {
-        font-weight: normal;
+      hgroup {
         margin-block: 4rem;
-      }
-      nav {
-        font-size: larger;
       }
       ul {
         list-style: decimal-leading-zero;
@@ -28,17 +25,26 @@
   </head>
   <body>
     <main>
-      <h1>3D CSS</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="experiments/cube">cube</a>
-          </li>
-          <li>
-            <a href="experiments/walkway">walkway</a>
-          </li>
-        </ul>
-      </nav>
+      <article>
+        <hgroup>
+          <h1>3D CSS</h1>
+          <p>A collection of 3D scenes made using just HTML, CSS, and JS.</p>
+          <sub>Note: These work best on a bigger screen.</sub>
+        </hgroup>
+        <nav>
+          <ul>
+            <li>
+              <a href="experiments/box">box</a>
+            </li>
+            <li>
+              <a href="experiments/walkway">walkway</a>
+            </li>
+            <li>
+              <a href="experiments/clock">clock</a>
+            </li>
+          </ul>
+        </nav>
+      </article>
     </main>
     <footer>
       <span>by <a href="https://seif.sh">Seif</a></span>

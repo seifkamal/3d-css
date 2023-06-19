@@ -6,12 +6,6 @@
   --box-color: var(--c-dark);
   --box-label-color: var(--c-light);
   --box-gradient: color-mix(in srgb, var(--c-light), var(--c-dark));
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform-style: preserve-3d;
+  --box-transition: width 200ms linear, height 200ms linear;
+  --box-anchor-transition: rotate 500ms var(--stagger, 0ms) ease-in-out;
 }

@@ -41,7 +41,6 @@ async function loadTemplate(name) {
   if (!template.id) {
     template.id = tempName;
   }
-  document.head.appendChild(template);
 
   return template;
 }

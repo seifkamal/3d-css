@@ -7,7 +7,7 @@
   --stagger: 1s;
 }
 
-main {
+article {
   display: flex;
   flex-direction: column;
   justify-content: center;
